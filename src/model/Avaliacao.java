@@ -56,6 +56,6 @@ public class Avaliacao
 			}
 		public void setComentario(String comentario)
 			{
-				comentario = comentario;
+				this.comentario = comentario;
 			}		
 	}
