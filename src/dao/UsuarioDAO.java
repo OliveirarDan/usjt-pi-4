@@ -42,14 +42,14 @@ public class UsuarioDAO
 
 		public void atualizar(Usuario usuario)
 			{
-				String sqlUpdate = "UPDATE tbl_usuario SET nome=?, sobrenome=?, email=?, senha=?, foto_perfil=? WHERE id=?";
+				String sqlUpdate = "UPDATE tbl_usuario SET nome=?, sobrenome=?, email=?, senha=?, foto_perfil=? WHERE id_usuario=?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlUpdate);)
 					{
 						stm.setString(1, usuario.getNome());
 						stm.setString(2, usuario.getSobrenome());
-						stm.setString(2, usuario.getEmail());
-						stm.setString(2, usuario.getSenha());
+						stm.setString(3, usuario.getEmail());
+						stm.setString(4, usuario.getSenha());
 						//INCLUIR AQUI O UPDATE DE IMAGEM
 
 						stm.setInt(4, usuario.getId());
@@ -62,7 +62,7 @@ public class UsuarioDAO
 
 		public void excluir(Usuario usuario)
 			{
-				String sqlDelete = "DELETE FROM usuario WHERE id = ?";
+				String sqlDelete = "DELETE FROM tbl_usuario WHERE id_usuario = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlDelete);)
 					{
@@ -78,7 +78,7 @@ public class UsuarioDAO
 			{
 				Usuario usuario = new Usuario();
 				usuario.setId(id);
-				String sqlSelect = "SELECT nome, sobrenome, email, senha, foto_perfil FROM tbl_usuario WHERE usuario.id = ?";
+				String sqlSelect = "SELECT nome, sobrenome, email, senha, foto_perfil FROM tbl_usuario WHERE usuario.id_usuario = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
 					{

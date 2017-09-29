@@ -2,14 +2,22 @@ package model;
 
 public class Avaliacao
 	{
+		int id;
 		int notaAcessoCadeirante;
 		int notaSanitarioCadeirante;
 		int notaInstrucaoBraile;
 		int notaSinalizacaoPiso;
-		int notaGeral;
+		double notaGeral;
 		String comentario;
 		
-		
+		public int getId()
+			{
+				return id;
+			}
+		public void setId(int id)
+			{
+				this.id = id;
+			}
 		public int getNotaAcessoCadeirante()
 			{
 				return notaAcessoCadeirante;
@@ -42,13 +50,13 @@ public class Avaliacao
 			{
 				this.notaSinalizacaoPiso = notaSinalizacaoPiso;
 			}
-		public int getNotaGeral()
+		public double getNotaGeral()
 			{
 				return notaGeral;
 			}
-		public void setNotaGeral(int notaGeral)
+		public void setNotaGeral(double d)
 			{
-				this.notaGeral = notaGeral;
+				this.notaGeral = d;
 			}
 		public String getComentario()
 			{
@@ -57,5 +65,5 @@ public class Avaliacao
 		public void setComentario(String comentario)
 			{
 				this.comentario = comentario;
-			}		
+			}	
 	}
