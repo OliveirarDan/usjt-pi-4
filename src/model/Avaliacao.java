@@ -7,7 +7,7 @@ public class Avaliacao
 		int notaInstrucaoBraile;
 		int notaSinalizacaoPiso;
 		int notaGeral;
-		String Comentario;
+		String comentario;
 		
 		
 		public int getNotaAcessoCadeirante()
@@ -52,10 +52,10 @@ public class Avaliacao
 			}
 		public String getComentario()
 			{
-				return Comentario;
+				return comentario;
 			}
 		public void setComentario(String comentario)
 			{
-				Comentario = comentario;
+				comentario = comentario;
 			}		
 	}
