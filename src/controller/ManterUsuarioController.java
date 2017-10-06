@@ -28,7 +28,7 @@ public class ManterUsuarioController extends HttpServlet
 				String uSobrenome = request.getParameter("sobrenome");
 				String uEmail = request.getParameter("email");
 				String uSenha = request.getParameter("senha");
-				//INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
+				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
 
 				// instanciar o javabean
 				Usuario usuario = new Usuario();
@@ -36,8 +36,8 @@ public class ManterUsuarioController extends HttpServlet
 				usuario.setSobrenome(uSobrenome);
 				usuario.setEmail(uEmail);
 				usuario.setSenha(uSenha);
-				//INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
-				
+				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
+
 				// instanciar o service
 				UsuarioService us = new UsuarioService();
 				us.criar(usuario);
@@ -45,7 +45,7 @@ public class ManterUsuarioController extends HttpServlet
 
 				// enviar para o jsp
 				request.setAttribute("usuario", usuario);
-				
+
 				RequestDispatcher view = request.getRequestDispatcher("Usuario.jsp");
 				view.forward(request, response);
 
