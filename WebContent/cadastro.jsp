@@ -11,13 +11,13 @@
 </head>
 <body>
 	<div class="cadastro-page">
-		<div class="form" action="ManterPais.do" method="post">
+		<div class="form" action="ManterUsuario.do" method="post">
 			<form class="cadastro-form">
-				<input type="text" placeholder="Nome" /> 
-				<input type="text" placeholder="Sobrenome" /> 
-				<input type="text" placeholder="Login (e-mail)" /> 
-				<input type="password"	placeholder="Senha" />
-				<button>Cadastrar</button>
+				<input type="text" placeholder="Nome" name="nome" id="nome" required maxlength="25"/> 
+				<input type="text" placeholder="Sobrenome" name="sobrenome" id="sobrenome" required	maxlength="25"/> 
+				<input type="email" placeholder="Login (e-mail)" name="email" id="email" required maxlength="60" /> 
+				<input type="password"placeholder="Senha" name="senha" id="senha" required maxlength="20"/>
+				<button type="submit" nome="acao">Cadastrar</button>
 				<p class="message">
 					Possui um login?<a href="login.html"> Entre aqui.</a>
 				</p>

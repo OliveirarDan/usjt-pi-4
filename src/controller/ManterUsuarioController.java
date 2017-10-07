@@ -46,8 +46,7 @@ public class ManterUsuarioController extends HttpServlet
 				// enviar para o jsp
 				request.setAttribute("usuario", usuario);
 
-				RequestDispatcher view = request.getRequestDispatcher("Usuario.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("cadastro.jsp");
 				view.forward(request, response);
-
 			}
 	}
