@@ -30,7 +30,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #f44336;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -44,16 +44,16 @@
   background: #43A047;
 }
 .form .message {
-  margin: 15px 0 0;
+  margin: 18px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 15px;
 }
 .form .message a {
-  color: #4CAF50;
+  color: #f44336;
   text-decoration: none;
 }
 .form .cadastro-form {
-  display: none;
+
 }
 .container {
   position: relative;
@@ -90,10 +90,10 @@
 }
 body {
   background: #76b852;
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: -webkit-linear-gradient(right, #2196f3, #2196f3);
+  background: -moz-linear-gradient(right, #2196f3, #2196f3);
+  background: -o-linear-gradient(right, #2196f3, #2196f3);
+  background: linear-gradient(to left, #2196f3, #2196f3);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

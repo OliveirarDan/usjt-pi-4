@@ -11,7 +11,7 @@ public class UsuarioDAO
 
 		public void criar(Usuario usuario)
 			{
-				String sqlInsert = "INSERT INTO tbl_usuario(nome, sobrenome, email, senha, foto_perfil) VALUES (?, ?, ?, ?, ?)";
+				String sqlInsert = "INSERT INTO tbl_usuario(nome, sobrenome, email, senha) VALUES (?, ?, ?, ?)";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlInsert);)
 					{
@@ -78,7 +78,7 @@ public class UsuarioDAO
 			{
 				Usuario usuario = new Usuario();
 				usuario.setId(id);
-				String sqlSelect = "SELECT nome, sobrenome, email, senha, foto_perfil FROM tbl_usuario WHERE usuario.id_usuario = ?";
+				String sqlSelect = "SELECT nome, sobrenome, email, senha FROM tbl_usuario WHERE usuario.id_usuario = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
 					{
