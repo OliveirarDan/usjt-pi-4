@@ -60,7 +60,6 @@ public class Usuario
 			{
 				this.foto = foto;
 			}
-		
 		@Override
 		public String toString()
 			{
