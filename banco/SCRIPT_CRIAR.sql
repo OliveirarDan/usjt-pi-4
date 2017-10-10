@@ -56,7 +56,9 @@ DROP TABLE IF EXISTS `usjt-pi-4`.`tbl_estabelecimento` ;
 CREATE TABLE IF NOT EXISTS `usjt-pi-4`.`tbl_estabelecimento` (
   `id_estabelecimento` INT UNSIGNED NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
-  `localizacao` VARCHAR(45) NOT NULL,
+  `endereco` VARCHAR(150) NOT NULL,
+  `lat` FLOAT(10,6) NOT NULL,
+  `lng` FLOAT(10,6) NOT NULL,
   `horario_funcionamento` VARCHAR(150) NULL,
   `telefone` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,

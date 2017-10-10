@@ -4,6 +4,10 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/Danilo/Desktop/Facul/4 sem/Praticas de Programação/Aula 4/apache-tomcat-8.0.46-windows-x64/apache-tomcat-8.0.46/lib/servlet-api.jar"/>
+>>>>>>> ea12445c545ef0b33a3b3bfe253c73c6f003bd51
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
