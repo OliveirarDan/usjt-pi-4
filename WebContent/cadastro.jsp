@@ -50,8 +50,16 @@
 					Possui um login?<a href="login.html"> Entre aqui.</a>
 				</p>							
 			</form>
-			${mensagem}			
-			${usuario.nome}	
+			<c:if test="${mensagem != ''}">
+				<div class="alerta alert alert-danger">
+  					<strong>${mensagem}</strong>
+				</div>
+			</c:if>
+			<c:if test="${mensagem == ''}">
+				<div class="alerta alert alert-success">
+  					<strong>${mensagem}</strong>
+				</div>
+			</c:if>			
 		</div>
 	</div>	
 	<script src="assets/js/jquery.min.js"></script>

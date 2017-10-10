@@ -43,11 +43,11 @@ public class ManterUsuarioController extends HttpServlet
 				if (emailExistente == 0)
 					{
 						us.criar(usuario); // criar um tipo de retorno podendo ser boolean ou string para garantir que o usuario foi inserido com sucesso.
-						retornaRequest(request, response, "", usuario, "cadastro.jsp");
+						retornaRequest(request, response, "Cadastro realizado com sucesso.", usuario, "cadastro.jsp");
 					} else if (emailExistente == 1)
 					{
 						// retonar string com mensagem de email repetido
-						retornaRequest(request, response, "Email existente.", usuario, "cadastro.jsp");
+						retornaRequest(request, response, "Este e-mail já existe, tente outro.", usuario, "cadastro.jsp");
 					} else
 					{
 						// retona uma mensagem de erro generica
