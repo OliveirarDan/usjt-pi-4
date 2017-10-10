@@ -18,6 +18,8 @@
 </head>
 <body>
 	<div class="cadastro-page">		
+	
+		<!-- formulário de cadastro -->
 		<div class="form form-group col-md-12">			
 			<h3>Cadastre-se</h3>
 			<form class="cadastro-form" action="ManterUsuario.do" method="post">
@@ -50,16 +52,20 @@
 					Possui um login?<a href="login.html"> Entre aqui.</a>
 				</p>							
 			</form>
-			<c:if test="${mensagem != ''}">
-				<div class="alerta alert alert-danger">
-  					<strong>${mensagem}</strong>
-				</div>
-			</c:if>
-			<c:if test="${mensagem == ''}">
-				<div class="alerta alert alert-success">
-  					<strong>${mensagem}</strong>
-				</div>
-			</c:if>			
+			
+			<!-- verifica o retorno da mensagem e exibe o alert adequado. -->
+			<c:choose>
+				<c:when test="${mensagem.equals('')}">
+					<div class="alert alert-success">
+	  					<strong>${mensagem}</strong>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="alert alert-danger">
+	  					<strong>${mensagem}</strong>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>	
 	<script src="assets/js/jquery.min.js"></script>
