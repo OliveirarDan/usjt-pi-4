@@ -11,7 +11,7 @@ public class UsuarioDAO
 
 		public void criar(Usuario usuario)
 			{
-				String sqlInsert = "INSERT INTO tbl_usuario(nome, sobrenome, email, senha, foto_perfil) VALUES (?, ?, ?, ?, ?)";
+				String sqlInsert = "INSERT INTO tbl_usuario(nome, sobrenome, email, senha) VALUES (?, ?, ?, ?)";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlInsert);)
 					{
@@ -28,15 +28,20 @@ public class UsuarioDAO
 							{
 								if (rs.next())
 									{
-										usuario.setId(rs.getInt(1));
+										usuario.setId(rs.getInt(1)); // retorno para sucesso
+									}
+								else
+									{
+										
+										
 									}
 							} catch (SQLException e)
 							{
-								e.printStackTrace();
+								e.printStackTrace(); //retorna bool para sinalizar erro
 							}
 					} catch (SQLException e)
 					{
-						e.printStackTrace();
+						e.printStackTrace(); // 
 					}
 			}
 
@@ -78,7 +83,7 @@ public class UsuarioDAO
 			{
 				Usuario usuario = new Usuario();
 				usuario.setId(id);
-				String sqlSelect = "SELECT nome, sobrenome, email, senha, foto_perfil FROM tbl_usuario WHERE usuario.id_usuario = ?";
+				String sqlSelect = "SELECT nome, sobrenome, email, senha FROM tbl_usuario WHERE usuario.id_usuario = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
 					{
@@ -111,4 +116,33 @@ public class UsuarioDAO
 					}
 				return usuario;
 			}
+		
+		public int emailExistente(String email)
+			{
+				Usuario usuario = new Usuario();
+				usuario.setEmail(email);
+				String sqlSelect = "SELECT email FROM tbl_usuario WHERE email = ?";
+				try (Connection conn = ConnectionFactory.obtemConexao();
+						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
+					{
+						stm.setString(1,  usuario.getEmail());
+						try (ResultSet rs = stm.executeQuery();)
+							{
+								if (rs.next())
+									{
+										return 1;
+									}else {
+										return 0;
+									}
+							} catch (SQLException e)
+							{
+								e.printStackTrace();
+							}
+					} catch (SQLException e1)
+					{
+						System.out.print(e1.getStackTrace());
+					}
+				return -1;
+			}
+		
 	}

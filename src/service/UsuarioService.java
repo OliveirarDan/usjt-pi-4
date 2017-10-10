@@ -28,4 +28,8 @@ public class UsuarioService
 			{
 				return dao.carregar(id);
 			}
+		public int emailExistente(String email)
+			{
+				return dao.emailExistente(email);
+			}
 	}
