@@ -72,7 +72,7 @@ public class ManterEstabelecimentoController extends HttpServlet {
 			
 			//manda parametro para o JSP via request
 			request.setAttribute("estabelecimento", estabelecimento);
-			dispatcher = request.getRequestDispatcher("Estabelecimento.jsp");
+			dispatcher = request.getRequestDispatcher("estabelecimento.jsp");
 			break;
 		
 		}
