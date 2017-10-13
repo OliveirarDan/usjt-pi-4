@@ -11,9 +11,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="assets/css/cadastro.css" rel="stylesheet" />
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/material-dashboard.css" rel="stylesheet">
 	<script src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="assets/js/login.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 	<title>Sem Barreiras | Cadastre-se</title>
 </head>
 <body>
@@ -68,7 +70,5 @@
 			</c:choose>
 		</div>
 	</div>	
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

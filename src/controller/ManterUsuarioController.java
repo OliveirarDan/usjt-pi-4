@@ -56,8 +56,7 @@ public class ManterUsuarioController extends HttpServlet
 					} else if (emailExistente == 1)
 					{
 						// retonar string com mensagem de email repetido.
-						retornaRequest(request, response, "Este e-mail já existe, tente outro.", usuario,
-								"cadastro.jsp");
+						retornaRequest(request, response, "Este e-mail já existe, tente outro.", usuario, "cadastro.jsp");
 					} else
 					{
 						// retona uma mensagem de erro generica.
