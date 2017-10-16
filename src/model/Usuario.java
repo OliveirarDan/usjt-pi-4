@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.image.BufferedImage;
+import java.io.InputStream;
 
 public class Usuario
 	{
@@ -9,7 +9,7 @@ public class Usuario
 		String sobrenome;
 		String email;
 		String senha;
-		BufferedImage foto;
+		String foto;
 		
 		
 		public int getId()
@@ -52,13 +52,13 @@ public class Usuario
 			{
 				this.senha = senha;
 			}
-		public BufferedImage getFoto()
+		public String getFoto()
 			{
 				return foto;
 			}
-		public void setFoto(BufferedImage foto)
+		public void setFoto(String uFoto)
 			{
-				this.foto = foto;
+				this.foto = uFoto;
 			}
 		@Override
 		public String toString()

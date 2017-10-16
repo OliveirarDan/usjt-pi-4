@@ -55,9 +55,8 @@ public class UsuarioDAO
 						stm.setString(2, usuario.getSobrenome());
 						stm.setString(3, usuario.getEmail());
 						stm.setString(4, usuario.getSenha());
-						//INCLUIR AQUI O UPDATE DE IMAGEM
-
-						stm.setInt(4, usuario.getId());
+						stm.setString(5, usuario.getFoto());
+						stm.setInt(6, usuario.getId());
 						stm.execute();
 					} catch (Exception e)
 					{
