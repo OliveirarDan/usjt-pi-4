@@ -24,7 +24,7 @@
 		<!-- formulário de cadastro -->
 		<div class="form form-group col-md-12">			
 			<h3>Cadastre-se</h3>
-			<form class="cadastro-form" action="ManterUsuario.do" method="post">
+			<form class="cadastro-form" action="ManterMeusDados.do" enctype="multipart/form-data" method="post">
 			
 			<div class="row">
 				<div class="form-group col-md-6">
@@ -45,6 +45,20 @@
 					<input type="password"placeholder="Senha" name="senha" id="senha" required maxlength="20"/>
 				</div>
 			</div>
+			<div class="col-md-12">
+	                            <div class="card card-profile">
+	                                <div class="card-avatar">
+	                                    <a href="#foto">
+	                                        <img class="img" src="data:image/png;base64,${usuario.foto}">
+	                                    </a>
+	                                </div>
+	                                <div class="content">
+	                                    <p class="card-content">
+	                                    	<input type="file" class="btn btn-primary" name="foto" id="foto">Alterar foto</input>
+	                                    </p>
+	                                </div>
+	                            </div>
+                       		</div>
 			<div class="row">
 				<div class="form-group col-md-12">
 					<button type="submit" name="acao">Cadastrar</button>
