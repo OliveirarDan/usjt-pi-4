@@ -13,86 +13,104 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- referencias de CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <!--  Material Dashboard CSS    -->
-    <link href="assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<!--  Material Dashboard CSS    -->
+<link href="assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
 
 <title>Sem Barreiras | Meus Dados</title>
 
 </head>
 <body>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg"
+		data-toggle="modal" data-target="#myModal">Launch demo modal
+	</button>
 
 
-<div class="container">
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="container-fluid">
-		<div class="card">
-			<div class="card-header" data-background-color="blue">
-					<h4 class="title">Meus dados</h4>
-					<p class="category">Atualize seus dados</p>
-				</div>
-				<div class="card-content">
-					<form>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group label-floating is-empty">
-									<label class="control-label">Nome</label> 
-									<input type="text"class="form-control" name="nome" id="nome"value="${usuario.nome}" /> 
-									<span class="material-input"></span>
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="container-fluid">
+				<div class="row">
+					<form action="ManterMeusDados.do" enctype="multipart/form-data"
+						method="post">
+
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-header" data-background-color="blue">
+									<h4 class="title">Meus dados</h4>
+									<p class="category">Atualize seus dados</p>
 								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group label-floating is-empty">
-									<label class="control-label">Sobrenome</label> 
-									<input type="text" class="form-control" name="sobrenome" id="sobrenome" value="${usuario.sobrenome}" /> 
-									<span class="material-input"></span>
+
+								<div class="card-content">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group label-floating is-empty">
+												<label class="control-label">Nome</label> <input type="text"
+													class="form-control" name="nome" id="nome"
+													value="${usuario.nome}" /> <span class="material-input"></span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group label-floating is-empty">
+												<label class="control-label">Sobrenome</label> <input
+													type="text" class="form-control" name="sobrenome"
+													id="sobrenome" value="${usuario.sobrenome}" /> <span
+													class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group label-floating is-empty">
+												<label class="control-label">E-mail (login)</label> <input
+													type="email" class="form-control" name="email" id="email"
+													value="${usuario.email}" /> <span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group label-floating is-empty">
+												<label class="control-label">Senha</label> <input
+													type="password" class="form-control" name="senha"
+													id="senha" value="${usuario.senha}"> <span
+													class="material-input"></span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- modal footer -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Fechar</button>
+									<button type="submit" name="acao" class="btn btn-primary">Salvar
+										alterações</button>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group label-floating is-empty">
-									<label class="control-label">E-mail (login)</label> 
-									<input type="email" class="form-control" name="email" id="email" value="${usuario.email}" /> 
-									<span class="material-input"></span>
+						<div class="col-md-4">
+							<div class="card card-profile">
+								<div class="card-avatar">
+									<a href="#foto"> <img class="img"
+										src="data:image/png;base64,${usuario.foto}">
+									</a>
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group label-floating is-empty">
-									<label class="control-label">E-mail (login)</label> 
-									<input type="email" class="form-control" name="email" id="email" value="${usuario.email}" /> 
-									<span class="material-input"></span>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group label-floating is-empty">
-									<label class="control-label">Senha</label> 
-									<input type="password" class="form-control" name="senha" id="senha" value="${usuario.senha}"> 
-									<span class="material-input"></span>
+								<div class="content">
+									<p class="card-content">
+										<input type="file" class="btn" name="foto"	id="foto" value="Alterar foto">
+									</p>
 								</div>
 							</div>
 						</div>
 					</form>
 				</div>
-				<!-- modal footer -->
-				<div class="modal-footer">					
-					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					<button type="button" class="btn btn-primary">Salvar alterações</button>
-				</div>
 			</div>
-		</div>	
+		</div>
 	</div>
-</div>
 </body>
 <!--   Core JS Files   -->
 <script src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>

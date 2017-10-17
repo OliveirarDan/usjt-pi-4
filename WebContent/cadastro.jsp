@@ -47,7 +47,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-md-12">
-					<button type="submit" nome="acao">Cadastrar</button>
+					<button type="submit" name="acao">Cadastrar</button>
 				</div>
 			</div>
 				<p class="message">

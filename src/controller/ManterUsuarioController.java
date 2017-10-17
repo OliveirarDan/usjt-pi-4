@@ -2,6 +2,7 @@ package controller;
 
 import service.UsuarioService;
 import model.Usuario;
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +29,6 @@ public class ManterUsuarioController extends HttpServlet
 				String uSobrenome = request.getParameter("sobrenome");
 				String uEmail = request.getParameter("email");
 				String uSenha = request.getParameter("senha");
-				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
 
 				// instanciar o javabean
 				Usuario usuario = new Usuario();
@@ -36,7 +36,6 @@ public class ManterUsuarioController extends HttpServlet
 				usuario.setSobrenome(uSobrenome);
 				usuario.setEmail(uEmail);
 				usuario.setSenha(uSenha);
-				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
 
 				// Instancia um usuário service
 				UsuarioService us = new UsuarioService();
@@ -56,7 +55,8 @@ public class ManterUsuarioController extends HttpServlet
 					} else if (emailExistente == 1)
 					{
 						// retonar string com mensagem de email repetido.
-						retornaRequest(request, response, "Este e-mail já existe, tente outro.", usuario, "cadastro.jsp");
+						retornaRequest(request, response, "Este e-mail já existe, tente outro.", usuario,
+								"cadastro.jsp");
 					} else
 					{
 						// retona uma mensagem de erro generica.
