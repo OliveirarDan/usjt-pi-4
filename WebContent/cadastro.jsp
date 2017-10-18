@@ -51,23 +51,21 @@
 				</div>
 			</div>
 				<p class="message">
-					Possui um login?<a href="login.html"> Entre aqui.</a>
+					Possui um login? <a href="login.jsp"><strong>Entre aqui.</strong></a>
 				</p>							
 			</form>
 			
 			<!-- verifica o retorno da mensagem e exibe o alert adequado. -->
-			<c:choose>
-				<c:when test="${mensagem.equals('')}">
-					<div class="alert alert-success">
+			<c:if test="${mensagem == 'Cadastro realizado com sucesso.'}">
+			    <div class="alert alert-success">
+	  				<strong>${mensagem}</strong>
+				</div>  
+			</c:if>
+			<c:if test="${mensagem == 'Este e-mail já existe, tente outro.' || mensagem == 'Ocorreu um erro.'}">
+			    <div class="alert alert-danger">
 	  					<strong>${mensagem}</strong>
-					</div>
-				</c:when>
-				<c:otherwise>
-					<div class="alert alert-danger">
-	  					<strong>${mensagem}</strong>
-					</div>
-				</c:otherwise>
-			</c:choose>
+				</div>
+			</c:if>
 		</div>
 	</div>	
 </body>
