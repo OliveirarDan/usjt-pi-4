@@ -11,8 +11,8 @@ public class AvaliacaoDAO
 
 		public void criar(Avaliacao avaliacao)
 			{
-				String sqlInsert = "INSERT INTO tbl_avaliacao(nota_acesso_cadeirante, nota_sanitario_cadeirante, nota_instrucao_braile, nota_sinalizacao_piso, nota_geral, comentario) "
-						+ " VALUES (?, ?, ?, ?, ?, ?)";
+				String sqlInsert = "INSERT INTO tbl_avaliacao(nota_acesso_cadeirante,nota_sanitario_cadeirante,nota_instrucao_braile,nota_sinalizacao_piso,media_nota,comentario,tbl_usuario_Id_usuario,tbl_estabelecimento_id_estabelecimento,tbl_estabelecimento_tbl_categoria_id_categoria)"
+						+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlInsert);)
 					{
@@ -22,6 +22,9 @@ public class AvaliacaoDAO
 						stm.setInt(4, avaliacao.getNotaSinalizacaoPiso());
 						stm.setDouble(5, avaliacao.getNotaGeral());
 						stm.setString(6, avaliacao.getComentario());
+						stm.setInt(7, avaliacao.getId_Usuario());
+						stm.setInt(8, avaliacao.getId_Estabelecimento());
+						stm.setInt(9, avaliacao.getId_Categoria());
 						
 						stm.execute();
 						String sqlQuery = "SELECT LAST_INSERT_ID()";
