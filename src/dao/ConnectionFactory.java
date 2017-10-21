@@ -14,6 +14,6 @@ public class ConnectionFactory {
 	}
 	
 	public static Connection obtemConexao() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost/usjt-pi-4?user=root&password=781080");
+		return DriverManager.getConnection("jdbc:mysql://localhost/usjt-pi-4?user=root&password=1234");
 	}
 }
