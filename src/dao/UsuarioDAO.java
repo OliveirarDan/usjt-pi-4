@@ -144,4 +144,36 @@ public class UsuarioDAO
 				return -1;
 			}
 		
+		
+		public String senhaExistente(String email)
+		{
+			String resultado="";
+			Usuario usuario = new Usuario();
+			usuario.setEmail(email);
+			String sqlSelect = "SELECT senha FROM tbl_usuario WHERE email = ?";
+			try (Connection conn = ConnectionFactory.obtemConexao();
+					PreparedStatement stm = conn.prepareStatement(sqlSelect);)
+				{
+					stm.setString(1,  usuario.getEmail());
+					try (ResultSet rs = stm.executeQuery();)
+						{
+							if (rs.next())
+								{
+								usuario.setSenha(rs.getString("senha"));
+								resultado = rs.getString("senha");
+								}else {
+									usuario.setSenha(rs.getString(null));
+								}
+						} catch (SQLException e)
+						{
+							e.printStackTrace();
+						}
+				} catch (SQLException e1)
+				{
+					System.out.print(e1.getStackTrace());
+				}
+			return resultado ;
+		}
+		
+		
 	}
