@@ -11,9 +11,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="assets/css/cadastro.css" rel="stylesheet" />
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/material-dashboard.css" rel="stylesheet">
 	<script src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="assets/js/login.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 	<title>Sem Barreiras | Cadastre-se</title>
 </head>
 <body>
@@ -45,30 +47,26 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-md-12">
-					<button type="submit" nome="acao">Cadastrar</button>
+					<button type="submit" name="acao">Cadastrar</button>
 				</div>
 			</div>
 				<p class="message">
-					Possui um login?<a href="login.html"> Entre aqui.</a>
+					Possui um login? <a href="login.jsp"><strong>Entre aqui.</strong></a>
 				</p>							
 			</form>
 			
 			<!-- verifica o retorno da mensagem e exibe o alert adequado. -->
-			<c:choose>
-				<c:when test="${mensagem.equals('')}">
-					<div class="alert alert-success">
+			<c:if test="${mensagem == 'Cadastro realizado com sucesso.'}">
+			    <div class="alert alert-success">
+	  				<strong>${mensagem}</strong>
+				</div>  
+			</c:if>
+			<c:if test="${mensagem == 'Este e-mail já existe, tente outro.' || mensagem == 'Ocorreu um erro.'}">
+			    <div class="alert alert-danger">
 	  					<strong>${mensagem}</strong>
-					</div>
-				</c:when>
-				<c:otherwise>
-					<div class="alert alert-danger">
-	  					<strong>${mensagem}</strong>
-					</div>
-				</c:otherwise>
-			</c:choose>
+				</div>
+			</c:if>
 		</div>
 	</div>	
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

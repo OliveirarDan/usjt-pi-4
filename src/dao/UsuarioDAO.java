@@ -11,7 +11,7 @@ public class UsuarioDAO
 
 		public void criar(Usuario usuario)
 			{
-				String sqlInsert = "INSERT INTO tbl_usuario(nome, sobrenome, email, senha) VALUES (?, ?, ?, ?)";
+				String sqlInsert = "INSERT INTO tbl_usuario(nome, sobrenome, email, senha, foto_perfil) VALUES (?, ?, ?, ?, ?)";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlInsert);)
 					{
@@ -19,7 +19,7 @@ public class UsuarioDAO
 						stm.setString(2, usuario.getSobrenome());
 						stm.setString(3, usuario.getEmail());
 						stm.setString(4, usuario.getSenha());
-						//INCLUIR AQUI O INSERT DE IMAGEM
+						stm.setString(5, usuario.getFoto());
 						
 						stm.execute();
 						String sqlQuery = "SELECT LAST_INSERT_ID()";
@@ -55,9 +55,8 @@ public class UsuarioDAO
 						stm.setString(2, usuario.getSobrenome());
 						stm.setString(3, usuario.getEmail());
 						stm.setString(4, usuario.getSenha());
-						//INCLUIR AQUI O UPDATE DE IMAGEM
-
-						stm.setInt(4, usuario.getId());
+						stm.setString(5, usuario.getFoto());
+						stm.setInt(6, usuario.getId());
 						stm.execute();
 					} catch (Exception e)
 					{

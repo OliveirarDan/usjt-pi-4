@@ -2,6 +2,7 @@ package controller;
 
 import service.UsuarioService;
 import model.Usuario;
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +29,6 @@ public class ManterUsuarioController extends HttpServlet
 				String uSobrenome = request.getParameter("sobrenome");
 				String uEmail = request.getParameter("email");
 				String uSenha = request.getParameter("senha");
-				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
 
 				// instanciar o javabean
 				Usuario usuario = new Usuario();
@@ -36,7 +36,6 @@ public class ManterUsuarioController extends HttpServlet
 				usuario.setSobrenome(uSobrenome);
 				usuario.setEmail(uEmail);
 				usuario.setSenha(uSenha);
-				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
 
 				// Instancia um usuário service
 				UsuarioService us = new UsuarioService();
