@@ -9,6 +9,10 @@ public class Avaliacao
 		int notaSinalizacaoPiso;
 		double notaGeral;
 		String comentario;
+		int id_Usuario;
+		int id_Estabelecimento;
+		int id_Categoria;
+		
 		
 		public int getId()
 			{
@@ -65,5 +69,25 @@ public class Avaliacao
 		public void setComentario(String comentario)
 			{
 				this.comentario = comentario;
-			}	
+			}
+		
+		public int getId_Usuario() {
+			return id_Usuario;
+		}
+		public void setId_Usuario(int id_Usuario) {
+			this.id_Usuario = id_Usuario;
+		}
+		public int getId_Estabelecimento() {
+			return id_Estabelecimento;
+		}
+		public void setId_Estabelecimento(int id_Estabelecimento) {
+			this.id_Estabelecimento = id_Estabelecimento;
+		}	
+		public int getId_Categoria() {
+			return id_Categoria;
+		}
+		public void setId_Categoria(int id_Categoria) {
+			this.id_Categoria = id_Categoria;
+		}
+		
 	}

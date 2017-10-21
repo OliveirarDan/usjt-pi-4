@@ -2,6 +2,7 @@ package controller;
 
 import service.UsuarioService;
 import model.Usuario;
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +29,6 @@ public class ManterUsuarioController extends HttpServlet
 				String uSobrenome = request.getParameter("sobrenome");
 				String uEmail = request.getParameter("email");
 				String uSenha = request.getParameter("senha");
-				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
 
 				// instanciar o javabean
 				Usuario usuario = new Usuario();
@@ -36,18 +36,45 @@ public class ManterUsuarioController extends HttpServlet
 				usuario.setSobrenome(uSobrenome);
 				usuario.setEmail(uEmail);
 				usuario.setSenha(uSenha);
-				// INCLUIR O RECEBIMENTO DA VARIAVEL DE FOTO DE PERFIL
 
-				// instanciar o service
+				// Instancia um usuário service
 				UsuarioService us = new UsuarioService();
-				us.criar(usuario);
-				usuario = us.carregar(usuario.getId());
 
-				// enviar para o jsp
+				/*
+				 * Criam uma variavel para receber o e-mail digitado pelo usuário. O método
+				 * emailExistente checa se o e-mail cadastrado já existe no banco e restorna um
+				 * boolean que é usado como parâmetro para dar a mensagem de retorno para o jsp
+				 * via dispatch
+				 */
+				int emailExistente = us.emailExistente(uEmail);
+				if (emailExistente == 0)
+					{
+						us.criar(usuario); // criar um tipo de retorno podendo ser boolean ou string para garantir que o
+											// usuario foi inserido com sucesso.
+						retornaRequest(request, response, "Cadastro realizado com sucesso.", usuario, "cadastro.jsp");
+					} else if (emailExistente == 1)
+					{
+						// retonar string com mensagem de email repetido.
+						retornaRequest(request, response, "Este e-mail já existe, tente outro.", usuario, "cadastro.jsp");
+					} else
+					{
+						// retona uma mensagem de erro generica.
+						retornaRequest(request, response, "Ocorreu um erro.", usuario, "cadastro.jsp");
+					}
+			}
+		
+
+		// Método para verificação se o e-mail digitado já existe.
+		protected void retornaRequest(HttpServletRequest request, HttpServletResponse response, String erro,
+				Usuario usuario, String url) throws ServletException, IOException
+			{
+				if (!erro.isEmpty())
+					{
+						request.setAttribute("mensagem", erro);
+					}
+
 				request.setAttribute("usuario", usuario);
-
-				RequestDispatcher view = request.getRequestDispatcher("Usuario.jsp");
-				view.forward(request, response);
-
+				RequestDispatcher viewErro = request.getRequestDispatcher(url);
+				viewErro.forward(request, response);
 			}
 	}

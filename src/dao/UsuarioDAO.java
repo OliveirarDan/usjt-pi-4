@@ -19,7 +19,7 @@ public class UsuarioDAO
 						stm.setString(2, usuario.getSobrenome());
 						stm.setString(3, usuario.getEmail());
 						stm.setString(4, usuario.getSenha());
-						//INCLUIR AQUI O INSERT DE IMAGEM
+						stm.setString(5, usuario.getFoto());
 						
 						stm.execute();
 						String sqlQuery = "SELECT LAST_INSERT_ID()";
@@ -28,15 +28,20 @@ public class UsuarioDAO
 							{
 								if (rs.next())
 									{
-										usuario.setId(rs.getInt(1));
+										usuario.setId(rs.getInt(1)); // retorno para sucesso
+									}
+								else
+									{
+										
+										
 									}
 							} catch (SQLException e)
 							{
-								e.printStackTrace();
+								e.printStackTrace(); //retorna bool para sinalizar erro
 							}
 					} catch (SQLException e)
 					{
-						e.printStackTrace();
+						e.printStackTrace(); // 
 					}
 			}
 
@@ -50,9 +55,8 @@ public class UsuarioDAO
 						stm.setString(2, usuario.getSobrenome());
 						stm.setString(3, usuario.getEmail());
 						stm.setString(4, usuario.getSenha());
-						//INCLUIR AQUI O UPDATE DE IMAGEM
-
-						stm.setInt(4, usuario.getId());
+						stm.setString(5, usuario.getFoto());
+						stm.setInt(6, usuario.getId());
 						stm.execute();
 					} catch (Exception e)
 					{
@@ -78,7 +82,7 @@ public class UsuarioDAO
 			{
 				Usuario usuario = new Usuario();
 				usuario.setId(id);
-				String sqlSelect = "SELECT nome, sobrenome, email, senha, foto_perfil FROM tbl_usuario WHERE usuario.id_usuario = ?";
+				String sqlSelect = "SELECT nome, sobrenome, email, senha FROM tbl_usuario WHERE usuario.id_usuario = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
 					{
@@ -111,4 +115,65 @@ public class UsuarioDAO
 					}
 				return usuario;
 			}
+		
+		public int emailExistente(String email)
+			{
+				Usuario usuario = new Usuario();
+				usuario.setEmail(email);
+				String sqlSelect = "SELECT email FROM tbl_usuario WHERE email = ?";
+				try (Connection conn = ConnectionFactory.obtemConexao();
+						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
+					{
+						stm.setString(1,  usuario.getEmail());
+						try (ResultSet rs = stm.executeQuery();)
+							{
+								if (rs.next())
+									{
+										return 1;
+									}else {
+										return 0;
+									}
+							} catch (SQLException e)
+							{
+								e.printStackTrace();
+							}
+					} catch (SQLException e1)
+					{
+						System.out.print(e1.getStackTrace());
+					}
+				return -1;
+			}
+		
+		
+		public String senhaExistente(String email)
+		{
+			String resultado="";
+			Usuario usuario = new Usuario();
+			usuario.setEmail(email);
+			String sqlSelect = "SELECT senha FROM tbl_usuario WHERE email = ?";
+			try (Connection conn = ConnectionFactory.obtemConexao();
+					PreparedStatement stm = conn.prepareStatement(sqlSelect);)
+				{
+					stm.setString(1,  usuario.getEmail());
+					try (ResultSet rs = stm.executeQuery();)
+						{
+							if (rs.next())
+								{
+								usuario.setSenha(rs.getString("senha"));
+								resultado = rs.getString("senha");
+								}else {
+									usuario.setSenha(rs.getString(null));
+								}
+						} catch (SQLException e)
+						{
+							e.printStackTrace();
+						}
+				} catch (SQLException e1)
+				{
+					System.out.print(e1.getStackTrace());
+				}
+			return resultado ;
+		}
+		
+		
 	}

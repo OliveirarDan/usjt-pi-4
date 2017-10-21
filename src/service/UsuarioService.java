@@ -3,7 +3,7 @@ package service;
 import dao.UsuarioDAO;
 
 //comentario qualquer
-import model.Usuario;;
+import model.Usuario;
 
 public class UsuarioService
 	{
@@ -28,4 +28,13 @@ public class UsuarioService
 			{
 				return dao.carregar(id);
 			}
+		public int emailExistente(String email)
+			{
+				return dao.emailExistente(email);
+			}
+		
+		public String senhaExistente(String email)
+		{
+			 return dao.senhaExistente(email);
+		} 
 	}
