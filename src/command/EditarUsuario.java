@@ -38,7 +38,7 @@ public class EditarUsuario implements Command
 		{
 
 		}
-		
+
 		Part fotoPart = request.getPart("foto"); // Recebe a variavel de foto em um tipo Part
 		String fotoTipo = Paths.get(fotoPart.getContentType()).getFileName().toString(); // Pega a extensão do arquivo
 		InputStream fileContent = fotoPart.getInputStream(); // Transforma em um InputStrem

@@ -19,8 +19,7 @@
 	<title>Sem Barreiras | Cadastre-se</title>
 </head>
 <body>
-	<div class="cadastro-page">		
-	
+	<div class="cadastro-page">			
 		<!-- formulário de cadastro -->
 		<div class="form form-group col-md-12">			
 			<h3>Cadastre-se</h3>

@@ -42,8 +42,7 @@ public class ManterMeusDadosController extends HttpServlet
 		String fotoTipo = Paths.get(fotoPart.getContentType()).getFileName().toString(); // Pega a extensão do arquivo
 		InputStream fileContent = fotoPart.getInputStream(); // Transforma em um InputStrem
 		BufferedImage imagem = ImageIO.read(fileContent); // Transforma o InputStream em BufferedImage
-		String fotoPerfil = codificaParaString(imagem, fotoTipo); // Chama o método que transforma o BufferedImage em
-																	// uma String
+		String fotoPerfil = codificaParaString(imagem, fotoTipo); // Chama o método que transforma o BufferedImage em uma String
 
 		// instanciar o javabean
 		Usuario usuario = new Usuario();
