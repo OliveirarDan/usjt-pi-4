@@ -24,7 +24,7 @@
 
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-lg"
-		data-toggle="modal" data-target="#myModal">Launch demo modal
+		data-toggle="modal" data-target="#myModal">Abrir modal
 	</button>
 
 
@@ -34,9 +34,7 @@
 			aria-labelledby="myModalLabel">
 			<div class="container-fluid">
 				<div class="row">
-					<form action="ManterMeusDados.do" enctype="multipart/form-data"
-						method="post">
-
+					<form action="controller.do" enctype="multipart/form-data" method="post">
 						<div class="col-md-8">
 							<div class="card">
 								<div class="card-header" data-background-color="blue">
@@ -87,8 +85,8 @@
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Fechar</button>
-									<button type="submit" name="acao" class="btn btn-primary">Salvar
-										alterações</button>
+									<button type="submit" name="command" value="EditarUsuario"
+										class="btn btn-primary">Salvar alterações</button>
 								</div>
 							</div>
 						</div>
@@ -101,7 +99,7 @@
 								</div>
 								<div class="content">
 									<p class="card-content">
-										<input type="file" class="btn" name="foto"	id="foto" value="Alterar foto">
+										<input type="file" class="btn" name="foto" id="foto" value="Alterar foto">
 									</p>
 								</div>
 							</div>
