@@ -90,4 +90,10 @@ public class Avaliacao
 			this.id_Categoria = id_Categoria;
 		}
 		
+		public void defineNotaGeral() {
+			this.notaGeral = this.notaAcessoCadeirante+this.notaSanitarioCadeirante+this.notaInstrucaoBraile+this.notaSinalizacaoPiso;
+			
+		}
+
+		
 	}

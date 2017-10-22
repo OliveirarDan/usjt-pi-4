@@ -11,7 +11,8 @@ public class UsuarioDAO
 
 		public void criar(Usuario usuario)
 			{
-				String sqlInsert = "INSERT INTO tbl_usuario(nome, sobrenome, email, senha, foto_perfil) VALUES (?, ?, ?, ?, ?)";
+				String sqlInsert = ""
+						+ "";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlInsert);)
 					{

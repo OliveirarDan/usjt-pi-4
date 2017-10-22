@@ -19,7 +19,7 @@ public class CriarAvaliacao implements Command
 	public void executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		request.setCharacterEncoding("UTF-8");
-		// dados da avaliac„o
+		// dados da avaliac√£o
 		String aId = request.getParameter("aId");
 		String aNotaAcessoCadeirante = request.getParameter("aNotaAcessoCadeirante");
 		String aNotaSanitarioCadeirante = request.getParameter("aNotaSanitarioCadeirante");
@@ -36,16 +36,20 @@ public class CriarAvaliacao implements Command
 
 		}
 
-		// dados extras ESTABELECIMENTO
-		int eId = 1;
+		
+		//dados extras ESTABELECIMENTO
+		int eId=1;
+		
+		//dados extras USUARIO
+		int uId=1;
+		
+		//dados extras USUARIO
+		int cId=1;
+		
+		
+				
+		//Instanciando o JavaBean Avaliacao
 
-		// dados extras USUARIO
-		int uId = 1;
-
-		// dados extras USUARIO
-		int cId = 1;
-
-		// Instanciando o JavaBean Avaliacao
 		Avaliacao avaliacao = new Avaliacao();
 		avaliacao.setId(id);
 		avaliacao.setNotaAcessoCadeirante(Integer.parseInt(aNotaAcessoCadeirante));
@@ -53,7 +57,7 @@ public class CriarAvaliacao implements Command
 		avaliacao.setNotaInstrucaoBraile(Integer.parseInt(aNotaInstrucaoBraile));
 		avaliacao.setNotaSinalizacaoPiso(Integer.parseInt(aNotaSinalizacaoPiso));
 		avaliacao.setNotaGeral(Double.parseDouble(aNotaGeral));
-		avaliacao.setComentario(aComentario);
+		avaliacao.setComentario(aComentario );
 		avaliacao.setId_Estabelecimento(eId);
 		avaliacao.setId_Usuario(uId);
 		avaliacao.setId_Categoria(cId);
@@ -66,8 +70,10 @@ public class CriarAvaliacao implements Command
 		as.criar(avaliacao);
 		ArrayList<Avaliacao> lista = new ArrayList<>();
 		lista.add(avaliacao);
+
 		session.setAttribute("lista", lista);
 		view = request.getRequestDispatcher("ListarAvaliacoes.jsp");
+
 
 		view.forward(request, response);
 	}
