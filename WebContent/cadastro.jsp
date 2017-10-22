@@ -19,12 +19,11 @@
 	<title>Sem Barreiras | Cadastre-se</title>
 </head>
 <body>
-	<div class="cadastro-page">		
-	
+	<div class="cadastro-page">			
 		<!-- formulário de cadastro -->
 		<div class="form form-group col-md-12">			
 			<h3>Cadastre-se</h3>
-			<form class="cadastro-form" action="ManterUsuario.do" method="post">
+			<form class="cadastro-form" action="controller.do" method="post">
 			
 			<div class="row">
 				<div class="form-group col-md-6">
@@ -47,7 +46,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-md-12">
-					<button type="submit" name="acao">Cadastrar</button>
+					<button type="submit" name="command" value="CriarUsuario">Cadastrar</button>
 				</div>
 			</div>
 				<p class="message">

@@ -11,12 +11,14 @@ import javax.servlet.http.HttpSession;
 import model.Avaliacao;
 import service.AvaliacaoService;
 
-public class EditarAvaliacao implements Command {
+public class EditarAvaliacao implements Command
+{
 
 	@Override
+
 	public void executar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//dados da avaliacão
+		//dados da avaliacï¿½o
 		String aId = request.getParameter("aId");
 		String aNotaAcessoCadeirante = request.getParameter("aNotaAcessoCadeirante");
 		String aNotaSanitarioCadeirante = request.getParameter("aNotaSanitarioCadeirante");
@@ -65,6 +67,7 @@ public class EditarAvaliacao implements Command {
 		view.forward(request, response);
 				
 		
+
 	}
 
 }
