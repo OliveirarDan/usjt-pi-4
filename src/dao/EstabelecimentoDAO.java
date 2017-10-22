@@ -87,7 +87,7 @@ public class EstabelecimentoDAO
 			{
 				Estabelecimento estabelecimento = new Estabelecimento();
 				estabelecimento.setId(id);
-				String sqlSelect = "SELECT nome, endereco, lat, lng, horario_funcionamento, telefone, email, site, tbl_categoria_id_categoria FROM tbl_estabelecimento WHERE estabelecimento.id_estabelecimento = ?";
+				String sqlSelect = "SELECT nome, endereco, lat, lng, horario_funcionamento, telefone, email, site, tbl_categoria_id_categoria FROM tbl_estabelecimento WHERE tbl_estabelecimento.id_estabelecimento = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
 					{

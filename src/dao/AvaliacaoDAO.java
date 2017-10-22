@@ -48,7 +48,7 @@ public class AvaliacaoDAO
 		public void atualizar(Avaliacao avaliacao)
 			{
 				String sqlUpdate = "UPDATE tbl_avaliacao SET nota_acesso_cadeirante=?, nota_sanitario_cadeirante=?, nota_instrucao_braile=?, "
-						+ "nota_sinalizacao_piso=?, nota_geral=?, comentario=? WHERE id_avaliacao=?";
+						+ "nota_sinalizacao_piso=?, media_nota=?, comentario=? WHERE id_avaliacao=?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlUpdate);)
 					{
@@ -84,8 +84,8 @@ public class AvaliacaoDAO
 			{
 				Avaliacao avaliacao = new Avaliacao();
 				avaliacao.setId(id);
-				String sqlSelect = "SELECT nota_acesso_cadeirante, nota_sanitario_cadeirante, nota_instrucao_braile, nota_sinalizacao_piso, nota_geral, comentario"
-						+ " FROM tbl_avaliacao WHERE avaliacao.id_avaliacao = ?";
+				String sqlSelect = "SELECT nota_acesso_cadeirante,nota_sanitario_cadeirante,nota_instrucao_braile,nota_sinalizacao_piso,media_nota,comentario,tbl_usuario_Id_usuario,tbl_estabelecimento_id_estabelecimento,tbl_estabelecimento_tbl_categoria_id_categoria"
+						+ " FROM tbl_avaliacao WHERE tbl_avaliacao.id_avaliacao = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
 					{
@@ -95,11 +95,14 @@ public class AvaliacaoDAO
 								if (rs.next())
 									{
 										avaliacao.setNotaAcessoCadeirante(rs.getInt("nota_acesso_cadeirante"));
-										avaliacao.setNotaSanitarioCadeirante(rs.getInt("nota_acesso_cadeirante"));
-										avaliacao.setNotaInstrucaoBraile(rs.getInt("nota_acesso_cadeirante"));
-										avaliacao.setNotaSinalizacaoPiso(rs.getInt("nota_acesso_cadeirante"));
-										avaliacao.setNotaGeral(rs.getDouble("nota_acesso_cadeirante"));
-										avaliacao.setComentario(rs.getString("nota_acesso_cadeirante"));
+										avaliacao.setNotaSanitarioCadeirante(rs.getInt("nota_sanitario_cadeirante"));
+										avaliacao.setNotaInstrucaoBraile(rs.getInt("nota_instrucao_braile"));
+										avaliacao.setNotaSinalizacaoPiso(rs.getInt("nota_sinalizacao_piso"));
+										avaliacao.setNotaGeral(rs.getDouble("media_nota"));
+										avaliacao.setComentario(rs.getString("comentario"));
+										avaliacao.setId_Usuario(rs.getInt("tbl_usuario_Id_usuario"));
+										avaliacao.setId_Estabelecimento(rs.getInt("tbl_estabelecimento_id_estabelecimento"));
+										avaliacao.setId_Categoria(rs.getInt("tbl_estabelecimento_tbl_categoria_id_categoria"));
 
 									} else
 									{
@@ -110,6 +113,9 @@ public class AvaliacaoDAO
 										avaliacao.setNotaSinalizacaoPiso(-1);
 										avaliacao.setNotaGeral(-1);
 										avaliacao.setComentario(null);
+										avaliacao.setId_Usuario(-1);
+										avaliacao.setId_Estabelecimento(-1);
+										avaliacao.setId_Categoria(rs.getInt(-1));
 									}
 							} catch (SQLException e)
 							{

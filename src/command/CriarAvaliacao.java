@@ -44,6 +44,7 @@ public class CriarAvaliacao implements Command {
 		int cId=1;
 		
 		
+				
 		//Instanciando o JavaBean Avaliacao
 		Avaliacao avaliacao = new Avaliacao();
 		avaliacao.setId(id);
@@ -52,7 +53,7 @@ public class CriarAvaliacao implements Command {
 		avaliacao.setNotaInstrucaoBraile(Integer.parseInt(aNotaInstrucaoBraile));
 		avaliacao.setNotaSinalizacaoPiso(Integer.parseInt(aNotaSinalizacaoPiso));
 		avaliacao.setNotaGeral(Double.parseDouble(aNotaGeral));
-		avaliacao.setComentario(aComentario);
+		avaliacao.setComentario(aComentario );
 		avaliacao.setId_Estabelecimento(eId);
 		avaliacao.setId_Usuario(uId);
 		avaliacao.setId_Categoria(cId);
@@ -67,8 +68,7 @@ public class CriarAvaliacao implements Command {
 		as.criar(avaliacao);
 		ArrayList<Avaliacao> lista= new ArrayList<>();
 		lista.add(avaliacao);
-		session.setAttribute("lista", lista);
-		view = request.getRequestDispatcher("ListarAvaliacoes.jsp");
+		session.setAttribute("avaliacao", avaliacao);
 		
 		view.forward(request, response);
 	}
