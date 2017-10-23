@@ -38,20 +38,20 @@ public class EditarUsuario implements Command
 		{
 
 		}
-
+		
 		Part fotoPart = request.getPart("foto"); // Recebe a variavel de foto em um tipo Part
 		String fotoTipo = Paths.get(fotoPart.getContentType()).getFileName().toString(); // Pega a extensão do arquivo
 		InputStream fileContent = fotoPart.getInputStream(); // Transforma em um InputStrem
 		BufferedImage imagem = ImageIO.read(fileContent); // Transforma o InputStream em BufferedImage
 		String fotoPerfil = codificaParaString(imagem, fotoTipo); // Chama o método que transforma o BufferedImage em
-
+		
 		// instanciar o javabean
 		Usuario usuario = new Usuario();
 		usuario.setNome(uNome);
 		usuario.setSobrenome(uSobrenome);
 		usuario.setEmail(uEmail);
 		usuario.setSenha(uSenha);
-		usuario.setFoto(fotoPerfil);
+		//usuario.setFoto(fotoPerfil);
 
 		// Instancia um usuário service
 		UsuarioService us = new UsuarioService();

@@ -20,6 +20,7 @@ public class ServletController extends HttpServlet
 			Command comando = (Command)Class.forName("command."+request.getParameter("command")).newInstance();
 
 			comando.executar(request, response);
+			
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e)
 		{
 			e.printStackTrace();

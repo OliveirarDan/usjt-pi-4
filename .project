@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>usjt-pi-4_21_10</name>
+	<name>usjt-pi-4</name>
 	<comment></comment>
 	<projects>
 		<project>javax.servlet.jsp.jstl-api-1.2.1</project>

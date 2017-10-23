@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `usjt-pi-4`.`tbl_usuario` (
   `sobrenome` VARCHAR(150) NOT NULL,
   `email` VARCHAR(150) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
-  `foto_perfil` VARCHAR(150) NULL,
+  `foto_perfil` BLOB NULL,
   PRIMARY KEY (`Id_usuario`),
   UNIQUE INDEX `Id_usuario_UNIQUE` (`Id_usuario` ASC))
 ENGINE = InnoDB;
