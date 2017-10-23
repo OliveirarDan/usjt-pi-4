@@ -4,6 +4,8 @@
 
 <!--  Arquivo de inclusao padrao de JS e CSS  -->
 <jsp:include page="config.jsp" />
+<script src="assets/js/mask.js"></script>
+
 <div class="card">
 	<div class="card-header" data-background-color="blue">
 		<h4 class="title">Novo Local</h4>
@@ -30,7 +32,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group label-floating">
-						<label class="control-label">Endereço</label> <input id="cadastroEndereco" name="cadastroEndereco" type="text"
+						<label class="control-label">Endereço</label> <input
+							id="cadastroEndereco" name="cadastroEndereco" type="text"
 							class="form-control" disabled>
 					</div>
 				</div>
@@ -40,14 +43,14 @@
 					<div class="form-group label-floating">
 						<label class="control-label">Aberto das:</label> <input
 							id="cadHrAbertura" name="cadHrAbertura" type="text"
-							class="form-control">
+							class="form-control hora" placeholder="Ex: 08:00">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group label-floating">
 						<label class="control-label">Até</label> <input
 							id="cadHrFechamento" name="cadHrFechamento" type="text"
-							class="form-control">
+							class="form-control hora" placeholder="Ex: 23:59">
 					</div>
 				</div>
 			</div>
@@ -61,7 +64,7 @@
 				<div class="col-md-3">
 					<div class="form-group label-floating">
 						<label class="control-label">Username</label> <input type="text"
-							class="form-control time24">
+							class="form-control hora">
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -125,7 +128,7 @@
 </div>
 <script>
 
-var
+$('.hora').mask('00:00');
 
-$demoMaskedInput.find('.time24').inputmask('hh:mm', { placeholder: '__:__ _m', alias: 'time24', hourFormat: '24' });
+	
 </script>
