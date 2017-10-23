@@ -76,7 +76,7 @@
 	                    		<label for="txtSite">Site:</label>
 	                        	<input type="text"  id="txtSite" name="txtSite" />
 	                    	</p>
-                    	</div><div >
+                    	</div><div>
                     		<p>
 	                    		<label for="optCategoria">Categoria:</label>
 	                        	

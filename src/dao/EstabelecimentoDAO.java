@@ -12,6 +12,7 @@ public class EstabelecimentoDAO
 
 		public void criar(Estabelecimento estabelecimento)
 			{
+				System.out.println(estabelecimento.getIdCategoria());
 				String sqlInsert = "INSERT INTO tbl_estabelecimento(nome, endereco, lat, lng, horario_funcionamento, telefone, email, site,tbl_categoria_id_categoria ) "
 						+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				try (Connection conn = ConnectionFactory.obtemConexao();
@@ -87,7 +88,7 @@ public class EstabelecimentoDAO
 			{
 				Estabelecimento estabelecimento = new Estabelecimento();
 				estabelecimento.setId(id);
-				String sqlSelect = "SELECT nome, endereco, lat, lng, horario_funcionamento, telefone, email, site, tbl_categoria_id_categoria FROM tbl_estabelecimento WHERE estabelecimento.id_estabelecimento = ?";
+				String sqlSelect = "SELECT nome, endereco, lat, lng, horario_funcionamento, telefone, email, site, tbl_categoria_id_categoria FROM tbl_estabelecimento WHERE id_estabelecimento = ?";
 				try (Connection conn = ConnectionFactory.obtemConexao();
 						PreparedStatement stm = conn.prepareStatement(sqlSelect);)
 					{
