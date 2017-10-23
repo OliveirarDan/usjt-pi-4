@@ -23,7 +23,11 @@ function initialize() {
 }
 
 $(document).ready(function () {
-
+	
+	if ($('.main-panel > .content').length == 0) {
+		$('.main-panel').css('height', '100%');
+	}
+	
 	initialize();
 	
 	function carregarNoMapa(endereco) {

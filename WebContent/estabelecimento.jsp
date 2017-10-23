@@ -1,127 +1,131 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" language="java" pageEncoding="UTF-8" import="java.sql.*" errorPage="" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html lang="pt-br">
+<%@ page contentType="text/html; charset=ISO-8859-1" language="java"
+	pageEncoding="UTF-8" import="java.sql.*" errorPage=""%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCaRg3rrIIM7Bs4n59Vb9tT15QOjYR9EUo"></script>
-    <script type="text/javascript" src="apiMaps/jquery.min.js"></script>
-    <script type="text/javascript" src="apiMaps/mapa.js"></script>
-    <script type="text/javascript" src="apiMaps/jquery-ui.custom.min.js"></script>
-    <title>Cadastrar Estabelecimento</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" type="text/css" rel="stylesheet" />
-    <link href="apiMaps/estilo.css" type="text/css" rel="stylesheet" />
+<!--  Arquivo de inclusao padrao de JS e CSS  -->
+<jsp:include page="config.jsp" />
+<div class="card">
+	<div class="card-header" data-background-color="blue">
+		<h4 class="title">Novo Local</h4>
+		<p class="category">Cadastre um novo estabelecimento</p>
+	</div>
+	<div class="card-content">
+		<form>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Latitude</label> <input
+							id="txtLatitude" name="txtLatitude" type="text"
+							class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Longitude</label> <input
+							id="txtLongitude" name="txtLongitude" type="text"
+							class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group label-floating">
+						<label class="control-label">Endereço</label> <input id="cadastroEndereco" name="cadastroEndereco" type="text"
+							class="form-control" disabled>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Aberto das:</label> <input
+							id="cadHrAbertura" name="cadHrAbertura" type="text"
+							class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Até</label> <input
+							id="cadHrFechamento" name="cadHrFechamento" type="text"
+							class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="form-group label-floating">
+						<label class="control-label">Company (disabled)</label> <input
+							type="text" class="form-control" disabled>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group label-floating">
+						<label class="control-label">Username</label> <input type="text"
+							class="form-control time24">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Email address</label> <input
+							type="email" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Fist Name</label> <input type="text"
+							class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group label-floating">
+						<label class="control-label">Last Name</label> <input type="text"
+							class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">City</label> <input type="text"
+							class="form-control">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Country</label> <input type="text"
+							class="form-control">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Postal Code</label> <input
+							type="text" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>About Me</label>
+						<div class="form-group label-floating">
+							<label class="control-label"> Lamborghini Mercy, Your
+								chick she so thirsty, I'm in that two seat Lambo.</label>
+							<textarea class="form-control" rows="5"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary pull-right">Update
+				Profile</button>
+			<div class="clearfix"></div>
+		</form>
+	</div>
+</div>
+<script>
 
-</head>
+var
 
-<body>
-     <div id="apresentacao">
-
-            <h1>Google Maps API v3: Busca de endereço e Autocomplete - Demo</h1>
-    
-            <form method="post" action="ManterEstabelecimento.do">    
-                <fieldset>
-
-                    <legend>Google Maps API v3: Busca de endereço e Autocomplete - Demo</legend>    
-            
-                    <div class="campos">
-                    	
-                    	<br>
-                    	
-                    	<div >
-                    		<p>
-	                    		<label for="txtNome">Nome:</label>
-	                        	<input type="text"  id="txtNome" name="txtNome" />
-	                    	</p>
-                    	</div>
-                    	
-						<br>                    
-                    	<div class="row">	
-                    		<br>
-                    		<p>
-                    			<label for="txtEndereco">Endereço:</label>
-                        		<input type="text" class="form-control" id="txtEndereco" name="txtEndereco" />
-                    		    <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no mapa" />
-                    		</p>
-                    	</div>
-                    	<br>	
-                    	<div class="row">	
-                    		
-                    	</div>
-                    	<div >
-                    		<p>
-	                    		<label for="txtHorario">Horário de funcionamento:</label>
-	                        	<input type="text"  id="txtHorario" name="txtHorario" />
-	                    	</p>
-                    	</div>
-                    	<div >
-                    		<p>
-	                    		<label for="txtTelefone">Telefone:</label>
-	                        	<input type="text"  id="txtTelefone" name="txtTelefone" />
-	                    	</p>
-                    	</div>
-                    	<div >
-                    		<p>
-	                    		<label for="txtEmail">E-mail:</label>
-	                        	<input type="text"  id="txtEmail" name="txtEmail" />
-	                    	</p>
-                    	</div>
-                    	<div >
-                    		<p>
-	                    		<label for="txtSite">Site:</label>
-	                        	<input type="text"  id="txtSite" name="txtSite" />
-	                    	</p>
-                    	</div><div >
-                    		<p>
-	                    		<label for="optCategoria">Categoria:</label>
-	                        	
-	                        	<select id="optCategoria" name="optCategoria">
-								    <option value="1">Bar</option>
-								    <option value="2">Cinema</option>
-								    <option value="3">Restaurante</option>
-								    <option value="4">Hotel</option>
-								</select>
-	                    	</p>
-                    	</div>
-                    	
-                    	<br>
-                    	<div class="row">	
-                    		<p>
-                    			<input type="text" class="form-control" id="txtLatitude" name="txtLatitude" />
-                    		</p>
-                    	</div>
-                    	
-                    	<div>	
-                    		<br>
-                    		<p>	
-                    			<input type="text" class="form-control" id="txtLongitude" name="txtLongitude" />
-                    		</p>
-                    	</div>
-                    
-                    
-                    </div>
-
-                    <div id="mapa"></div>
-                    
-                	
-                    
-                    
-					<p>
-					
-					<button type="submit"  name="acao" value="Criar" name="btnEnviar" >Salvar</button>
-					
-					
-                </fieldset>
-            </form>
-
-            
-
-        </div>
-</body>
-
-</html>
+$demoMaskedInput.find('.time24').inputmask('hh:mm', { placeholder: '__:__ _m', alias: 'time24', hourFormat: '24' });
+</script>
