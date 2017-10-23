@@ -54,7 +54,7 @@ public class ManterMeusDadosController extends HttpServlet
 
 		// Instancia um usuário service
 		UsuarioService us = new UsuarioService();
-		us.atualizar(usuario);
+		us.criar(usuario);
 
 		// enviar para o jsp
 		request.setAttribute("usuario", usuario);

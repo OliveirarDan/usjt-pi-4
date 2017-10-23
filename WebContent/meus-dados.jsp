@@ -39,7 +39,7 @@
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="container-fluid">
 				<div class="row">
-					<form action="controller.do" enctype="multipart/form-data"method="post">
+					<form action="ManterMeusDados.do" enctype="multipart/form-data"method="post">
 						<div class="col-md-8">
 							<div class="card">
 								<div class="card-header" data-background-color="blue">
