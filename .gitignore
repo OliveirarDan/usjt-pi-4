@@ -1,3 +1,5 @@
 /build/
 /bin/
-/apache-tomcat-8.5.23-windows-x64/
+/apache-tomcat-8.5.23-windows-x64/ConnectionFactory.java
+/src/dao/
+.gitignore

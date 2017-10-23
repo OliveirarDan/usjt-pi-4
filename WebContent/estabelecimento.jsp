@@ -5,6 +5,7 @@
 <!--  Arquivo de inclusao padrao de JS e CSS  -->
 <jsp:include page="config.jsp" />
 <script src="assets/js/mask.js"></script>
+<script src="assets/js/estabelecimento.js"></script>
 
 <div class="card">
 	<div class="card-header" data-background-color="blue">
@@ -12,7 +13,7 @@
 		<p class="category">Cadastre um novo estabelecimento</p>
 	</div>
 	<div class="card-content">
-		<form method="post" id="formCadastroEst">
+		<form id="formCadastroEst">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group label-floating">
@@ -47,7 +48,7 @@
 					<div class="form-group label-floating">
 						<label class="control-label">Endereço</label> <input
 							id="cadastroEndereco" name="cadastroEndereco" type="text"
-							class="form-control" disabled>
+							class="form-control">
 					</div>
 				</div>
 			</div>
@@ -55,7 +56,7 @@
 				<div class="col-md-6">
 					<div class="form-group label-floating">
 						<label class="control-label">Aberto das:</label> <input
-							id="cadHrAbertura" name="cadHrAbertura" type="text"
+							id="cadHrAbertura" name="txtHorario" type="text"
 							class="form-control hora" placeholder="Ex: 08:00">
 					</div>
 				</div>
@@ -99,5 +100,5 @@
 </div>
 <script>
 	$('.hora').mask('00:00');
-	$('.email').mask('(00) 0000-0000');
+	$('.telefone').mask('(00) 0000-0000');
 </script>
