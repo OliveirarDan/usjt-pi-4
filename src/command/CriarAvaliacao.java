@@ -25,7 +25,7 @@ public class CriarAvaliacao implements Command
 		String aNotaSanitarioCadeirante = request.getParameter("aNotaSanitarioCadeirante");
 		String aNotaInstrucaoBraile = request.getParameter("aNotaInstrucaoBraile");
 		String aNotaSinalizacaoPiso = request.getParameter("aNotaSinalizacaoPiso");
-		String aNotaGeral = request.getParameter("aNotaGeral");
+//		String aNotaGeral = request.getParameter("aNotaGeral");
 		String aComentario = request.getParameter("aComentario");
 		int id = -1;
 		try
@@ -56,7 +56,7 @@ public class CriarAvaliacao implements Command
 		avaliacao.setNotaSanitarioCadeirante(Integer.parseInt(aNotaSanitarioCadeirante));
 		avaliacao.setNotaInstrucaoBraile(Integer.parseInt(aNotaInstrucaoBraile));
 		avaliacao.setNotaSinalizacaoPiso(Integer.parseInt(aNotaSinalizacaoPiso));
-		avaliacao.setNotaGeral(Double.parseDouble(aNotaGeral));
+//		avaliacao.setNotaGeral(Double.parseDouble(aNotaGeral));
 		avaliacao.setComentario(aComentario );
 		avaliacao.setId_Estabelecimento(eId);
 		avaliacao.setId_Usuario(uId);
@@ -66,15 +66,18 @@ public class CriarAvaliacao implements Command
 		AvaliacaoService as = new AvaliacaoService();
 		RequestDispatcher view = null;
 		HttpSession session = request.getSession();
-
+		
+		double media = avaliacao.getNotaAcessoCadeirante()+avaliacao.getNotaInstrucaoBraile()+avaliacao.getNotaSanitarioCadeirante()+avaliacao.getNotaSinalizacaoPiso();
+		media = media/4;
+		avaliacao.setNotaGeral(media);
 		as.criar(avaliacao);
 		ArrayList<Avaliacao> lista = new ArrayList<>();
 		lista.add(avaliacao);
+	
+		session.setAttribute("avaliacao", avaliacao);
+		view = request.getRequestDispatcher("AlterarAvaliacao.jsp");
 
-		session.setAttribute("lista", lista);
-		view = request.getRequestDispatcher("ListarAvaliacoes.jsp");
-
-
+		
 		view.forward(request, response);
 	}
 
