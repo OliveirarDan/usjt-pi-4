@@ -94,13 +94,13 @@
     </div>
     <div>
     <div>
-			<label id="aNotaGeral" name="aNotaGeral">Nota Geral: </label>
-		   	<select id="aNotaGeral" name="aNotaGeral"> 
-		    <option value="1">1 estrela</option>
-		    <option value="2">2 estrela</option>
-		    <option value="3">3 estrela</option>
-		    <option value="4">4 estrela</option>
-		    <option value="5">5 estrela</option>
+<!-- 			<label id="" name="">Nota Geral: </label> -->
+<!-- 		   	<select id="aNotaGeral" name="aNotaGeral">  -->
+<!-- 		    <option value="1">1 estrela</option> -->
+<!-- 		    <option value="2">2 estrela</option> -->
+<!-- 		    <option value="3">3 estrela</option> -->
+<!-- 		    <option value="4">4 estrela</option> -->
+<!-- 		    <option value="5">5 estrela</option> -->
 	</select>  
 <!--     	<input type="text" placeholder="Media Nota" name="aNotaGeral" id="aNotaGeral"> -->
     </div>
