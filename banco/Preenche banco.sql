@@ -36,3 +36,9 @@ select * from tbl_avaliacao;
 select * from tbl_estabelecimento;
 select * from tbl_usuario;
 select * from tbl_categoria;
+
+
+INSERT INTO tbl_avaliacao(nota_acesso_cadeirante,nota_sanitario_cadeirante,nota_instrucao_braile,nota_sinalizacao_piso,media_nota,comentario,tbl_usuario_Id_usuario,tbl_estabelecimento_id_estabelecimento,tbl_estabelecimento_tbl_categoria_id_categoria) VALUES (1, 1, 1, 2, ((nota_acesso_cadeirante+nota_sanitario_cadeirante+nota_instrucao_braile+nota_sinalizacao_piso)/4), 'Lugarzinho nota 3', 3, 3, 3);
+INSERT INTO tbl_avaliacao(nota_acesso_cadeirante,nota_sanitario_cadeirante,nota_instrucao_braile,nota_sinalizacao_piso,media_nota,comentario,tbl_usuario_Id_usuario,tbl_estabelecimento_id_estabelecimento,tbl_estabelecimento_tbl_categoria_id_categoria) VALUES (5, 4, 3, 3, ((nota_acesso_cadeirante+nota_sanitario_cadeirante+nota_instrucao_braile+nota_sinalizacao_piso)/4), 'Lugarzinho nota 3', 3, 3, 3);
+INSERT INTO tbl_avaliacao(nota_acesso_cadeirante,nota_sanitario_cadeirante,nota_instrucao_braile,nota_sinalizacao_piso,media_nota,comentario,tbl_usuario_Id_usuario,tbl_estabelecimento_id_estabelecimento,tbl_estabelecimento_tbl_categoria_id_categoria) VALUES (1, 5, 4, 5, ((nota_acesso_cadeirante+nota_sanitario_cadeirante+nota_instrucao_braile+nota_sinalizacao_piso)/4), 'Lugarzinho nota 3', 3, 3, 3);
+
