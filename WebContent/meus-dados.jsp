@@ -40,7 +40,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<form action="controller.do" method="post">
-						<div class="col-md-8">
+						<div class="col-xs-8">
 							<div class="card">
 								<div class="card-header" data-background-color="blue">
 									<h4 class="title">Meus dados</h4>
@@ -49,14 +49,14 @@
 
 								<div class="card-content">
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-xs-6">
 											<div class="form-group label-floating is-empty">
 												<label class="control-label">Nome</label> 
 												<input type="text" class="form-control" name="nome" id="nome" value="${usuario.nome}" /> 
 												<span class="material-input"></span>
 											</div>
 										</div>
-										<div class="col-md-6">
+										<div class="col-xs-6">
 											<div class="form-group label-floating is-empty">
 												<label class="control-label">Sobrenome</label> 
 												<input type="text" class="form-control" name="sobrenome" id="sobrenome" value="${usuario.sobrenome}" /> 
@@ -65,7 +65,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-12">
+										<div class="col-xs-12">
 											<div class="form-group label-floating is-empty">
 												<label class="control-label">E-mail (login)</label> 
 												<input type="email" class="form-control" name="email" id="email" value="${usuario.email}" /> 
@@ -74,7 +74,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-xs-6">
 											<div class="form-group label-floating is-empty">
 												<label class="control-label">Senha</label> 
 												<input type="password" class="form-control" name="senha" id="senha" value="${usuario.senha}"> 
@@ -90,7 +90,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-xs-4">
 							<div class="card card-profile">
 								<div class="card-avatar">
 									<!-- verifica se há uma foto de usuário, senão preenche com uma imagem default -->
