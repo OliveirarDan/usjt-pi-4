@@ -26,7 +26,5 @@ function readFile() {
 
 		FR.readAsDataURL(this.files[0]);
 	}
-
 }
-
 document.getElementById("foto").addEventListener("change", readFile);

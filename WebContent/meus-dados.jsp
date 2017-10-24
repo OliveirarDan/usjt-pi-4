@@ -39,7 +39,7 @@
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="container-fluid">
 				<div class="row">
-					<form action="controller.do" enctype="multipart/form-data" method="post">
+					<form action="controller.do" method="post">
 						<div class="col-md-8">
 							<div class="card">
 								<div class="card-header" data-background-color="blue">
@@ -95,15 +95,17 @@
 								<div class="card-avatar">
 									<!-- verifica se há uma foto de usuário, senão preenche com uma imagem default -->
 									<c:if test="${empty usuario.foto}">
-										<a href="#foto"> <img class="img"  src="assets\img\profile.jpg"></a>
+										<a href="#foto"> 
+										<img class="img" src="assets\img\profile.jpg"></a>
 									</c:if>
 									<c:if test="${not empty usuario.foto}">
-										<a href="#foto"> <img class="img" src="data:image/png;base64,${usuario.foto}"></a>									
+										<a href="#foto"> 
+										<img class="img"></a>								
 									</c:if>									
 								</div>
 								<div class="content">
 									<p class="card-content">
-										<input type="file" onchange="previewFile()" class="btn" name="foto" id="foto" value="Alterar foto">
+										<input type="file" onchange="previewFile()" class="btn" name="foto" = b64 id="foto" value="Alterar foto">
 									</p>
 								</div>
 							</div>
